@@ -5,7 +5,7 @@ pipeline {
       steps {
        
         bat  "php -v"
-        bat "​composer require --dev phpunit/phpunit"
+        bat "composer require --dev phpunit/phpunit ^11"
         bat ".\\vendor\\bin\\phpunit --version"
         bat "composer dump-autload"
         
