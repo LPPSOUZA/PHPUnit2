@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-
+include '.\src\Email.php';
 final class EmailTest extends TestCase
 {
     public function testCanBeCreatedFromValidEmail(): void
