@@ -5,29 +5,18 @@ pipeline {
       steps {
        
         bat  "php -v"
-         bat "phpunit --version"
-      
+        bat "​composer require --dev phpunit/phpunit"
+        bat ".\\vendor\\bin\phpunit --version"
+        bat "composer dump-autload"
+        
       }
     }
     stage('run tests') {
       steps {
-        bat "phpunit --bootstrap src\\autoload.php tests"
+        bat ".\\vendor\\bin\\phpunit"
       }
     }
-    stage ('run tests with TestDox') {
-      steps {
-        bat "phpunit --bootstrap src\\autoload.php --testdox tests"
-      }
-    }
-    stage ('run tests with JUnit results') {
-      steps {
-        bat "phpunit --bootstrap src\\autoload.php --log-junit target\\junit-results.xml tests"
-      }
-      post {
-        always {
-          junit testResults: 'target\\*.xml'
-        }
-      }
-    }
+  
+
   }
 }
