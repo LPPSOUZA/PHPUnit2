@@ -1,4 +1,5 @@
 <?php declare(strict_types=1);
+//teste
 final class Email
 {
     private string $email;
